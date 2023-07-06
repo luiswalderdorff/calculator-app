@@ -1,0 +1,29 @@
+<style>
+    ion-content {
+        min-height: 100vh;
+    }
+</style>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="floating">Erste Zahl</ion-label>
+        <ion-input type="number" [(ngModel)]="firstNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Zweite Zahl</ion-label>
+        <ion-input type="number" [(ngModel)]="secondNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Operator</ion-label>
+        <ion-select [(ngModel)]="operatorSymbol">
+            <ion-select-option value="+">+</ion-select-option>
+            <ion-select-option value="-">-</ion-select-option>
+            <ion-select-option value="*">*</ion-select-option>
+            <ion-select-option value="/">/</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-button expand="full" (click)="calculate()">Berechnen</ion-button>
+    <div>
+        <p>Ergebnis: {{ result }}</p>
+    </div>
+</ion-content>
