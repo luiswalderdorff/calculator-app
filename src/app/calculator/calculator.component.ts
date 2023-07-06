@@ -6,33 +6,22 @@ import {Component} from '@angular/core';
     styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent {
-    firstNumber: number;
-    secondNumber: number;
-    operatorSymbol = '+';
-    result: number;
+    digits: string[] = ['7', '8', '9', '1', '2', '3', '4', '5', '6', '0'];
+    expression = '';
 
-    constructor() {
-        this.firstNumber = 0;
-        this.secondNumber = 0;
-        this.result = 0;
+    addToExpression(value: string) {
+        this.expression += value;
     }
 
-    calculate() {
-        switch (this.operatorSymbol) {
-            case '+':
-                this.result = this.firstNumber + this.secondNumber;
-                break;
-            case '-':
-                this.result = this.firstNumber - this.secondNumber;
-                break;
-            case '*':
-                this.result = this.firstNumber * this.secondNumber;
-                break;
-            case '/':
-                this.result = this.firstNumber / this.secondNumber;
-                break;
-            default:
-                break;
+    clearExpression() {
+        this.expression = '';
+    }
+
+    evaluateExpression() {
+        try {
+            this.expression = eval(this.expression);
+        } catch (error) {
+            this.expression = 'Fehler';
         }
     }
 }
