@@ -1,5 +1,12 @@
 {
-  "name": "calculator-app",
-  "integrations": {},
-  "type": "angular"
+  "defaultProject": "calculator-app",
+  "projects": {
+    "calculator-app": {
+      "name": "calculator-app",
+      "integrations": {
+        "capacitor": {}
+      },
+      "type": "angular"
+    }
+  }
 }
